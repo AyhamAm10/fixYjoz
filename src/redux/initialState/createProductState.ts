@@ -1,0 +1,31 @@
+import { ProductFormState } from "../../type/PostProductsType";
+
+export const initialState: ProductFormState = {
+    is_renting_support: false,
+    is_selling_support: false,
+    category_id: null,
+    sub_category_id: null,
+    address_id: null,
+    title: "",
+    description: "",
+    item_price: null,
+    tag_id: null,
+    quantity: null,
+    renting_mode: "",
+    day_price: null,
+    week_price: null,
+    month_price: null,
+    unit_price: null,
+    delivery_fees: null,
+    vendor_delivery_support: false,
+    min_rental_days: null,
+    min_rental_units: null,
+    renting_unit_id: null,
+    brand_id: null,
+    rent_to_buy: false,
+    subscription_id: null,
+    discounts: [],
+    attributes: [],
+    cities: [],
+    images: []
+};
