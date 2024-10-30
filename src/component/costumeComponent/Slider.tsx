@@ -6,8 +6,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import CostumBtn from './CostumBtn';
 import useScreenSize from '../../hooks/useScreenSizeSlider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { addNewFiltering } from '../../redux/slice/searchApiSlice';
 
 type sliderProps = {
   data : any[],
@@ -21,7 +23,12 @@ const Slider:React.FC<sliderProps> = ({data , Component , bg , subCategory}) => 
 
   const {t} = useTranslation()
   const screenSize = useScreenSize()
-  console.log(data)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const handleCheckCategory = ()=>{
+    dispatch(addNewFiltering({category_id: data[0].category.id}))
+    navigate("/category")
+  }
   return (
     <>
       {
@@ -70,7 +77,7 @@ const Slider:React.FC<sliderProps> = ({data , Component , bg , subCategory}) => 
           }
         </div>
         <div className='flex-center py-10'>
-          <CostumBtn value={t("ShowAll")} style='w-full md:w-auto ' />
+          <CostumBtn fn={handleCheckCategory} value={t("ShowAll")} style='w-full md:w-auto ' />
         </div>
       </div>
       }

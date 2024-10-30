@@ -41,7 +41,7 @@ const CarSLider: React.FC = () => {
             <Slider
               data={products.productByCategory[0].products}
               Component={CartSlider}
-              bg="#F6F5F5"
+              // bg="#F6F5F5"
               subCategory={products.productByCategory[0].category.sub_categories}
             />
             <Slider

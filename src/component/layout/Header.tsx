@@ -11,12 +11,14 @@ import emirates from "../../assets/emirates.png";
 import menu from "../../assets/f7_menu.svg";
 import MobileList from "../homePage/MobileList";
 import { useTranslation } from "react-i18next";
-
+import { useCookies } from "react-cookie";
+import avatar from "../../assets/avatar.png"
 const Header = () => {
   let location = useLocation();
   const [ListItem, setListItem] = useState<headerType[]>(headerList);
-  const [isMenuOpen, setMenuOpen] = useState(false); 
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const { i18n } = useTranslation();
+  const [cookie] = useCookies(["tooken"]);
 
   useEffect(() => {
     const newList = ListItem.map((item) =>
@@ -27,19 +29,15 @@ const Header = () => {
     setListItem(newList);
   }, [location]);
 
-
   const menuVariants = {
     hidden: { height: 0, opacity: 0 },
     visible: { height: "auto", opacity: 1 },
   };
 
-  
-
-  const changeLanguage = (lng:string) => {
+  const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    console.log('work')
+    console.log("work");
   };
-
 
   return (
     <header className="flex justify-center px-6 sm:px-3 md:px-6 lg:px-22 py-5 sm:py-7 2xl:py-[69px] bg-white relative">
@@ -49,6 +47,7 @@ const Header = () => {
         </Link>
 
         <ul className="hidden lg:flex gap-4 sm:gap-6 lg:gap-8 ">
+          
           {ListItem.map((item: headerType) => (
             <Link key={item.id} to={item._id}>
               <li
@@ -63,32 +62,48 @@ const Header = () => {
         </ul>
 
         <div className="hidden lg:flex items-center gap-2 2xl:gap-3">
-          <button>
+          <Link to={"/search"}>
             <img
               src={search}
               className="rounded-full w-[36px] h-[36px] 2xl:w-[56px] 2xl:h-[56px]"
               alt="search icon "
             />
-          </button>
-          <button>
-            <Link to={"/login"}>
-              <img
-                src={login}
-                className="rounded-full w-[36px] h-[36px] 2xl:w-[56px] 2xl:h-[56px]"
-                alt="login icon"
-              />
-            </Link>
-          </button>
+          </Link>
+          {!cookie && (
+            <button>
+              <Link to={"/login"}>
+                <img
+                  src={login}
+                  className="rounded-full w-[36px] h-[36px] 2xl:w-[56px] 2xl:h-[56px]"
+                  alt="login icon"
+                />
+              </Link>
+            </button>
+          )}
 
           <button className="rounded-full border border-[#E0E0E0] px-3 py-3 flex items-center justify-center gap-2 ">
             <img src={emirates} width={20} alt="language" />
             <h3 className="text-ofblack font-semibold text-sm">UAE</h3>
           </button>
 
-          <button onClick={() => changeLanguage('en')} className="rounded-full border border-[#E0E0E0] min-w-[80px] px-2 py-2 flex items-center justify-center gap-2 ">
+          <button
+            onClick={() => changeLanguage("en")}
+            className="rounded-full border border-[#E0E0E0] min-w-[80px] px-2 py-2 flex items-center justify-center gap-2 "
+          >
             <img src={Language} width={25} alt="language" />
             <h3 className="text-ofblack font-semibold text-sm">EN</h3>
           </button>
+
+          {
+            cookie &&
+            <Link  to={"/profile/home"} >
+              <img
+                src={avatar}
+                className="rounded-full w-[36px] h-[36px] 2xl:w-[56px] 2xl:h-[56px]"
+                alt="search icon "
+              />
+            </Link>
+          }
         </div>
 
         <div className="lg:hidden" onClick={() => setMenuOpen(!isMenuOpen)}>
@@ -103,7 +118,7 @@ const Header = () => {
         variants={menuVariants}
         className="overflow-hidden"
       >
-        <MobileList  setMenuOpen={setMenuOpen}/>
+        <MobileList setMenuOpen={setMenuOpen} />
       </motion.div>
     </header>
   );

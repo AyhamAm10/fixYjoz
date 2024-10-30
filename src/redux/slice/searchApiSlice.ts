@@ -24,7 +24,6 @@ const initialState: searchReq = {
             return { ...state, ...action.payload };
       },
         addNewFiltering: (state, action: PayloadAction<Partial<searchReq>>) => {
-          console.log(state)
             return {
                 ...initialState , 
                 ...action.payload

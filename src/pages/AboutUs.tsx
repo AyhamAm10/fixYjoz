@@ -4,9 +4,11 @@ import img1 from "../assets/aboutUs/Icon.png";
 import img2 from "../assets/aboutUs/Icon (1).png";
 import img3 from "../assets/aboutUs/Icon (2).png";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate()
   return (
     <div className="px-3 sm:px-5 md:px-10 lg:px-20 py-10 lg:max-w-[95rem] mx-auto xl:max-w-[120rem]  ">
       <HeroSection />
@@ -27,6 +29,7 @@ const AboutUs: React.FC = () => {
             title={t("PlayingYourPart")}
             p={t("PlayingYourPartDescription")}
             btn={t("BrowseItems")}
+            fn={()=>navigate("/")}
           />
         </div>
       </div>

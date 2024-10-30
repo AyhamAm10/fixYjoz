@@ -14,7 +14,7 @@ import { bodyReqVerify } from "../redux/slice/verifyCode";
 import { useDispatch } from "react-redux";
 import Loader from "../component/layout/Loader"
 import { useTranslation } from 'react-i18next';
-
+import arrow from "../assets/login/Arrows.png"
 const Login: React.FC = () => {
   const [state, setState] = useState({
     email: "",
@@ -80,11 +80,14 @@ const Login: React.FC = () => {
     <div className="min-h-screen bg-primery">
       <div className="shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-2 w-full min-h-screen">
         <div className="rounded-r-xl md:bg-gradient-to-r from-red to-yalwe px-4 py-6 md:p-6  lg:p-8 relative flex flex-col items-center justify-center">
+          <div className="relative">
           <img
             src={bg}
             alt="Circular Logo"
             className="sm:mb-4 z-10 w-[200px] md:w-[30rem] lg:w-[35rem] xl:w-[42rem]"
           />
+          <img src={arrow} alt="arrow" className="w-[200px] md:w-[28rem] lg:w-[33rem] xl:w-[40rem] absolute z-20 sm:mb-4 top-0 animate-login duration-200 " />
+          </div>
           <img
             src={logo}
             alt="yjoz logo"

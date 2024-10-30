@@ -63,7 +63,6 @@ const Category = () => {
 
   const handleSelectChange = (newValue: string) => {
     setSelectedValue(newValue);
-    console.log("Selected:", newValue);
   };
 
   const handleSlider = (id: number) => {
@@ -84,8 +83,8 @@ const Category = () => {
   // git brands by category
   useEffect(() => {
     if (selectedcategory) {
-      const data = useGetBrands(selectedcategory[0]?.id);
-      console.log(data);
+       useGetBrands(selectedcategory[0]?.id);
+      //  Don't forget to add the brand to the page.
     }
   }, [selectedcategory]);
 

@@ -7,6 +7,8 @@ import { getCategoryApi } from "../../redux/slice/categorySlice";
 import { categorysType } from "../../type/reduxType";
 import { LongStaleTime } from "../../api/API__information_conect";
 import { useTranslation } from "react-i18next";
+import { addNewFiltering } from "../../redux/slice/searchApiSlice";
+import { useNavigate } from "react-router-dom";
 
 interface resData {
   data: categorysType;
@@ -18,6 +20,7 @@ const Categorys: React.FC = () => {
   );
   const dispatch = useDispatch();
   const {t} = useTranslation()
+  const navigation = useNavigate()
   const { data, isLoading } = useQuery<
     unknown,
     Error,
@@ -35,9 +38,13 @@ const Categorys: React.FC = () => {
   useEffect(() => {
     if (data) {
       dispatch(getCategoryApi(data.data));
-      console.log(data)
     }
   }, [data ]);
+
+  const handleChickCategory = (id:string)=>{
+    dispatch(addNewFiltering({category_id: id}))
+    navigation("/category")
+  }
 
   return (
     <section>
@@ -63,7 +70,7 @@ const Categorys: React.FC = () => {
         {categotysData && (
           <div  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 lg:gap14 px-3 sm:px-5 md:px-10 cursor-pointer">
             {categotysData.category.map((item: any) => (
-              <button key={item.category} className="overflow-hidden hover:bg-gradient-to-b from-red to-yalwe hover:scale-110 transition-all duration-300 rounded-lg  lg:rounded-md relative flex flex-col lg:flex-row items-center gap-3 sm:gap-5 md:gap-7 lg:px-8 py-2 bg-white shadow-md ">
+              <button onClick={()=>handleChickCategory(item.id)} key={item.category} className="overflow-hidden hover:bg-gradient-to-b from-red to-yalwe hover:scale-110 transition-all duration-300 rounded-lg  lg:rounded-md relative flex flex-col lg:flex-row items-center gap-3 sm:gap-5 md:gap-7 lg:px-8 py-2 bg-white shadow-md ">
                 <img
                   src={item.image}
                   className=" w-8 sm:w-10 md:w-12 lg:w-[3.25rem]   "

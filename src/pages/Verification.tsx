@@ -60,7 +60,7 @@ const Verification: React.FC = () => {
         } )
         console.log(res.headers.authorization)
         setCookie( "token" ,res.headers.authorization)
-        navigate("/profile/home")
+        navigate("/")
     } catch (error) {
       console.log(error)
     } finally

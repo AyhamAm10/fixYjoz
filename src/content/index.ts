@@ -30,8 +30,8 @@ export const headerList:headerType[] = [
     },
     {
         id : 3 ,
-        title : "Category",
-        _id: "/category",
+        title : "search",
+        _id: "/search",
         active: false
     },
     {
