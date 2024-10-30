@@ -23,7 +23,7 @@ const initialState: searchReq = {
         addAttribute: (state, action: PayloadAction<Partial<searchReq>>) => {
             return { ...state, ...action.payload };
       },
-        addNewFiltering: (state, action: PayloadAction<Partial<searchReq>>) => {
+        addNewFiltering: (_state, action: PayloadAction<Partial<searchReq>>) => {
             return {
                 ...initialState , 
                 ...action.payload

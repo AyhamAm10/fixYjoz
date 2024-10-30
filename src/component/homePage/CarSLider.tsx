@@ -22,7 +22,6 @@ const CarSLider: React.FC = () => {
   });
 
   useEffect(()=>{
-
     if(error)
       AddNotification("error" , error.message , "warning" )
   },[error])
@@ -30,6 +29,7 @@ const CarSLider: React.FC = () => {
   useEffect(() => {
     if (data) {
       dispatch(getProductByCategory(data.data));
+      console.log(products)
     }
   }, [data]);
 
