@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <ReactNotifications />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/about_us" element={<AboutUs />} />
             <Route path="/search" element={<Category />} />
             <Route path="/Product/:id" element={<DetailProdect />} />
             <Route path="/FAQ`s" element={<FAQs />} />
@@ -48,7 +48,7 @@ const App: React.FC = () => {
             <Route path="/FAQs" element={<FAQs />} />
             <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/Conditions" element={<Conditions />} />
-            <Route path="/profile/*" element={<ProfilePages />} />
+            <Route path="/account/*" element={<ProfilePages />} />
             <Route path="/plans" element={<Plan />} />
             <Route path="/login" element={<Login />} /> 
             <Route path="/register" element={<Register />} /> 

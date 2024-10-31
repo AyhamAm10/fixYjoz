@@ -20,13 +20,13 @@ export const mobileLink = [
     },
     {
         id:8 ,
-        link:"/about",
+        link:"/about_us",
         icon: about,
         active: false
     },
     {
         id:9 ,
-        link:"/category",
+        link:"/search",
         icon: search,
         active: false
     },
@@ -38,31 +38,31 @@ export const mobileLink = [
     },
     {
         id:1 ,
-        link:"/profile/home",
+        link:"/account/profile",
         icon: main,
         active: false
     },
     {
         id:2 ,
-        link:"/profile/myItems",
+        link:"/account/my_items",
         icon: list2,
         active: false
     },
     {
         id:3 ,
-        link:"/profile/favorites",
+        link:"/account/favorites",
         icon: list3,
         active: false
     },
     {
         id:4 ,
-        link:"/profile/Addresses",
+        link:"/account/addresses",
         icon: list4,
         active: false
     },
     {
         id:5 ,
-        link:"/profile/chat",
+        link:"/account/chat",
         icon: list5,
         active: false
     },

@@ -25,7 +25,7 @@ export const headerList:headerType[] = [
     {
         id : 2 ,
         title : "About",
-        _id: "/about",
+        _id: "/about_us",
         active: false
     },
     {
@@ -51,14 +51,14 @@ export const headerList:headerType[] = [
 export const profilePageList = [
     {
         id:1 ,
-        link:"home",
+        link:"profile",
         icon: list1,
         activeIcon: list1active,
         active: false
     },
     {
         id:2 ,
-        link:"myItems",
+        link:"my_items",
         icon: list2,
         activeIcon: list2Active,
         active: false
@@ -72,7 +72,7 @@ export const profilePageList = [
     },
     {
         id:4 ,
-        link:"Addresses",
+        link:"addresses",
         icon: list4,
         activeIcon: list4active,
         active: false
@@ -84,13 +84,13 @@ export const profilePageList = [
         activeIcon: list5active,
         active: false
     },
-    {
-        id:1 ,
-        link:"programe",
-        icon: list6,
-        activeIcon: list6active,
-        active: false
-    },
+    // {
+    //     id:1 ,
+    //     link:"programe",
+    //     icon: list6,
+    //     activeIcon: list6active,
+    //     active: false
+    // },
     
 ]
 

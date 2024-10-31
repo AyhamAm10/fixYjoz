@@ -9,7 +9,7 @@ const Items = () => {
           <h1>My Items</h1>
           <p className="text-[#B0B0B0] text-xs md:text-sm leading-4 font-normal my-4 sm:my-7">View and Manage items you wish to rent</p>
         </div>
-        <Link to={"/profile/add_item"}>
+        <Link to={"/account/add_item"}>
         
         <button
           type="submit"

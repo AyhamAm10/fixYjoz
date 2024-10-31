@@ -96,7 +96,7 @@ const Header = () => {
 
           {
             cookie &&
-            <Link  to={"/profile/home"} >
+            <Link  to={"/account/profile"} >
               <img
                 src={avatar}
                 className="rounded-full w-[36px] h-[36px] 2xl:w-[56px] 2xl:h-[56px]"

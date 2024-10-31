@@ -50,11 +50,11 @@ const ProfilePages = () => {
         </aside>
         <main className='py-4 sm:py-6 lg:py-8 px-3 md:px-6 lg:pl-9    lg:max-w-[90rem] xl:max-w-[100rem] md:max-w-[75rem] mx-auto max-w-[80rem] '>
                 <Routes>
-                    <Route path='home' element={<Main/>} />
-                    <Route path='myItems' element={<Items/>} />
+                    <Route path='profile' element={<Main/>} />
+                    <Route path='my_items' element={<Items/>} />
                     <Route path='add_item' element={<AddNewItem/>} />
                     <Route path='favorites' element={<Favorites/>} />
-                    <Route path='Addresses' element={<AddressPage/>} />
+                    <Route path='addresses' element={<AddressPage/>} />
                     <Route path='programe' element={<Programe/>} />
                 </Routes>
         </main>
