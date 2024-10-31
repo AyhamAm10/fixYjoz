@@ -12,10 +12,10 @@ import Partners from '../component/homePage/Partners';
 const HomePage:React.FC = () => {
   
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen '>
       <HeroSection />
       <HowToStart />
-      <div className='mx-auto'>
+      <div className='mx-auto  [padding-inline:min(3vw,60px)] max-w-[2044px] '>
       <Categorys />
       <CarSLider />
       <PeopleSayAbuoyUs />

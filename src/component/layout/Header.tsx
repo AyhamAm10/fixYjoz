@@ -40,8 +40,8 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-center px-6 sm:px-3 md:px-6 lg:px-22 py-5 sm:py-7 2xl:py-[69px] bg-white relative">
-      <div className="max-w-[1600px] flex justify-between items-center w-full ">
+    <header className="flex justify-center  py-5 sm:py-7 2xl:py-[69px] bg-white relative [padding-inline:min(3vw,60px)] max-w-[2044px] mx-auto">
+      <div className=" flex justify-between items-center w-full ">
         <Link className="mr-20 md:mr-32 lg:mr-36" to="/">
           <img src={logo} alt="yjoz logo" className="h-5 lg:h-8 2xl:h-14 " />
         </Link>

@@ -34,9 +34,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className=" px-2 sm:px-4 md:px-8   sm:bg-[#F2F5FA] pt-4 pb-10 relative">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-[1400px] gap-8">
-        <div className="lg:pb-24 pb-2">
+    <footer className=" px-2 sm:px-4 md:px-8   sm:bg-[#F2F5FA] pt-4 pb-10 relative ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10  max-w-[2044px] mx-auto gap-8 gap-x-3">
+        <div className="lg:pb-24 pb-2 lg:col-span-2">
           <img src={logo} className="" alt="yjoz logo" />
           <p className="text-[#7A7A7A] text-xs sm:text-sm py-3   ">
             Lorem ipsum dolor sit amet consectetur. Convallis nam in et netus
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             
           </div>
         </div>
-        <div className=" py-2 lg:py-20 sm:px-10 px-2">
+        <div className=" py-2 lg:py-20 sm:px-10 px-2 lg:col-span-2">
           <h3 className="text-dark sm:pb-10 text-sm sm:text-lg md:text-2xl font-semibold">
             Pages
           </h3>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div className=" py-2 lg:py-20  px-2 ">
+        <div className=" py-2 lg:py-20  px-2 lg:col-span-2">
           <h3 className="text-dark sm:pb-10 text-sm sm:text-lg md:text-2xl font-semibold">
             Contact Us
           </h3>
@@ -119,16 +119,16 @@ const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div className="flex-center">
-          <div className="">
+        <div className="lg:col-span-4">
+          <div className="flex flex-col w-full flex-wrap">
             <img
               src={prand}
               alt="payment-methods"
               className="lg:translate-y-[-50%] py-10"
             />
-            <div className="flex flex-col items-center lg:flex-row gap-6 lg:absolute lg:bottom-[15%] lg:right-[5%] ">
+            <div className="flex flex-row gap-6 flex-wrap ">
               {[img1, img2, img3].map((img, ind) => (
-                <img src={img} className="h-20 w-fit" key={ind} />
+                <img src={img} className="h-20 w-[220px] " key={ind} />
               ))}
             </div>
           </div>

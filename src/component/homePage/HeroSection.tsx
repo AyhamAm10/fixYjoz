@@ -5,9 +5,9 @@ import CostumBtn from "../costumeComponent/CostumBtn"
 const HeroSection:React.FC = () => {
   const {t} = useTranslation()
   return (
-    <section className=" flex-center py-4 px-3 sm:px-6 md:px-9 ">
-        <div className=" relative max-w-[100rem] w-full">
-            <img src={imgSlider} alt="img slider" className="z-10 sm:block float-end rounded-bl-3xl" />
+    <section className=" flex-center py-4 [padding-inline:min(3vw,60px)] max-w-[2044px] mx-auto">
+        <div className=" relative  w-[90%] m-auto">
+            <img src={imgSlider} alt="img slider" className="z-10 sm:block float-end rounded-bl-3xl md:w-[70%]" />
             <div className=" z-20 sm:absolute sm:top-1/2 sm:translate-y-[-50%] rounded__hero_card px-3 py-5 sm:p-7 md:p-9 bg-white ">
                 <div className="mt-4 mr-4 md:max-w-[600px] 2xl:max-w-[730px]">
                     <p className="font-semibold  text-3xl sm:text-5xl md:text-6xl text-ofblack " >

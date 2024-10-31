@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden ">
          {!noFooterRoutes.includes(location.pathname) && <Header />}
       <QueryClientProvider client={queryClient}>
         <main className="bg-primery">
