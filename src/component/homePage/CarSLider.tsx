@@ -12,7 +12,7 @@ import useScreenSize from "../../hooks/useScreenSize";
 const CarSLider: React.FC = () => {
   const products = useSelector((state: any) => state.productByCategorySlice);
   const dispatch = useDispatch();
-  const {screenSize,setMaxElementsNumber,setPaddingSize,setWidthElement} = useScreenSize()
+  const {screenSize,setMaxElementsNumber,setWidthElement} = useScreenSize()
   const { data , error } = useQuery<unknown, Error, { data: any[] }, QueryKey>({
     queryKey: ["product category "],
     queryFn: useGetProductByCategory,

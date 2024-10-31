@@ -38,7 +38,7 @@ const HowToStart: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-r from-red to-yalwe rounded-md my-10 py-4 sm:py-9 md:py-12 lg:py-20 px-2 sm:px-4 flex flex-col items-center ">
+    <section className="bg-gradient-to-r from-red to-yalwe rounded-md my-4 sm:my-10 py-4 sm:py-9 md:py-12 lg:py-20 px-2 sm:px-4 flex flex-col items-center ">
       <h1 className="text-white text-xl font-semibold pb-3 sm:pb-5">
         {t('How_to_Start')}
       </h1>
