@@ -5,7 +5,7 @@ import redBg from "../../assets/home/bgred.png"
 import yalBg from "../../assets/home/bgYallwe.png"
 const PeopleSayAbuoyUs: React.FC = () => {
   return (
-    <div className="flex px-4 sm:px-6 md:px-10  lg:px-20 lg:py-20 relative">
+    <div className="flex px-4 sm:px-6 md:px-10  lg:px-16 lg:py-16 relative">
       <img src={redBg} className=" hidden md:block absolute z-20 top-10 left-20" />
       <img src={yalBg} className=" hidden md:block absolute z-20 bottom-10 right-20" />
       <Slider data={listPeopleCart} Component={SayCart} />

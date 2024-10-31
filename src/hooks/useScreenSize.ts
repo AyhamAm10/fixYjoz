@@ -5,15 +5,10 @@ function useScreenSize() {
 
   function getScreenSize() {
     const width = window.innerWidth;
-    if (width < 640) {
-      return 1.3;
-    } else if (width >= 640 && width < 768) {
-      return 2.2;
-    } else if (width >= 768 && width < 1280) {
-      return 3;
-    } else if (width >= 1280 && width < 1636) {
-      return 4;
-    } else {
+ 
+    if(width <= 1924){
+      return Math.round((width-120)/414)
+    }else{
       return 4;
     }
   }

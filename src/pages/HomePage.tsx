@@ -15,7 +15,7 @@ const HomePage:React.FC = () => {
     <div className='min-h-screen'>
       <HeroSection />
       <HowToStart />
-      <div className=' container mx-auto'>
+      <div className='mx-auto'>
       <Categorys />
       <CarSLider />
       <PeopleSayAbuoyUs />
