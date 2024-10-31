@@ -18,11 +18,11 @@ const Partners = () => {
       <h2 className="text-center text-3xl font-bold my-10 text-dark">
       {t("Successpartners")}
       </h2>
-      <div className="flex flex-col-reverse lg:flex-row items-center px-5 sm:px-9 lg:px-20  gap-4 sm:gap-6 mdLgap-10 lg:gap-20">
+      <div className="flex flex-col-reverse lg:flex-row items-center gap-4 sm:gap-6 mdLgap-10 lg:gap-20 justify-between">
             <div className="md:w-[50%] flex flex-col gap-5 sm:gap-10 ">
                 <h1 className="text-[#828283] text-xl sm:text-3xl md:text-7xl font-semibold "><span className="text-gradient">Download</span>  YJOZ APP</h1>
                 <p className="text-p  text-2xl">{t("lorim30")}</p>
-                <div className="flex flex-col gap-5 lg:flex-row items-center justify-between">
+                <div className="flex flex-col gap-5 lg:flex-row items-center justify-between xl:w-[80%] ">
                   <BtnPartners img={googlePlay} name="Google Play" title="GET IT ON" border="#D93F21"  />
                   <BtnPartners img={appStore} name="Google Play" title="GET IT ON" border="#2068EC" />
                   <BtnPartners img={huawei} name="Google Play" title="GET IT ON" border="#E14459" />

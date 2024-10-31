@@ -124,7 +124,7 @@ const Footer: React.FC = () => {
             <img
               src={prand}
               alt="payment-methods"
-              className="lg:translate-y-[-50%] py-10"
+              className=" py-10"
             />
             <div className="flex flex-row gap-6 flex-wrap ">
               {[img1, img2, img3].map((img, ind) => (
