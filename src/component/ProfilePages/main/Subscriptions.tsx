@@ -23,7 +23,7 @@ const Subscriptions = () => {
             1AD(s) Remains
           </p>
         </div>
-        <div className="mt-8 md:mt-auto h-full flex items-center gap-3 sm:gap-5 md:gap-6  ">
+        <div className="mt-8 md:mt-auto h-full flex justify-between sm:justify-normal items-center gap-3 sm:gap-5 md:gap-6  ">
           <button
             className={`rounded-md text-red px-4 md:px-10 py-3 border border-red font-bold text-sm`}
           >

@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className=" px-2 sm:px-4 md:px-8   sm:bg-[#F2F5FA] pt-4 pb-10 relative ">
+    <footer className=" px-2 sm:px-4 md:px-8 bg-primery  sm:bg-[#F2F5FA] pt-4 pb-10 relative ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10  max-w-[2044px] mx-auto gap-8 gap-x-3">
         <div className="lg:pb-24 pb-2 lg:col-span-2 ">
           <img src={logo} className="pb-10 sm:pb-0 mx-auto" alt="yjoz logo" />

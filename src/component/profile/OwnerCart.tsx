@@ -4,7 +4,7 @@ import img from "../../assets/profile/iconamoon_profile-fill.png";
 const OwnerCart = () => {
   return (
     <div className="p-4 bg-white ">
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2   items-center">
         <img src={img} alt="profile" />
         <h2 className="text-[#BABCC1] font-medium ">iconamoon_profile</h2>
         <p className="text-[#BABCC1] font-medium ">22/9/2024</p>

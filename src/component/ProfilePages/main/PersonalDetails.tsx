@@ -51,7 +51,7 @@ const PersonalDetails = () => {
           }}
       >
         {({ setFieldValue }) => (
-          <Form className="grid px-3 grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
+          <Form className="grid px-3 grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 ">
             <div className="flex items-center justify-between sm:col-span-2">
               <h1 className="text-dark text-lg sm:text-xl md:text-2xl lg:text-[2rem] font-semibold">
                 Personal Details
@@ -70,7 +70,7 @@ const PersonalDetails = () => {
               </label>
               <Field
                 name="first_name"
-                className="w-full text-dark opacity-40 p-3 shadow-sm rounded-sm bg-white mt-2"
+                className="w-full text-dark  p-3 shadow-sm rounded-sm bg-white mt-2"
                 placeholder="Your First Name"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setFieldValue('first_name', e.target.value);
@@ -85,7 +85,7 @@ const PersonalDetails = () => {
               </label>
               <Field
                 name="last_name"
-                className="w-full text-dark opacity-40 p-3 shadow-sm rounded-sm bg-white mt-2"
+                className="w-full text-dark  p-3 shadow-sm rounded-sm bg-white mt-2"
                 placeholder="Your Last Name"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setFieldValue('last_name', e.target.value);
@@ -101,7 +101,7 @@ const PersonalDetails = () => {
               <Field
                 name="email"
                 type="email"
-                className="w-full text-dark opacity-40 p-3 shadow-sm rounded-sm bg-white mt-2"
+                className="w-full text-dark  p-3 shadow-sm rounded-sm bg-white mt-2"
                 placeholder="test@test.com"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setFieldValue('email', e.target.value);
@@ -134,7 +134,6 @@ const PersonalDetails = () => {
                   backgroundColor: 'white',
                   border: '1px solid #ccc',
                   borderRadius: '4px',
-                  opacity: '0.4',
                 }}
                 placeholder="988754652"
               />
@@ -146,7 +145,7 @@ const PersonalDetails = () => {
               </label>
               <Field
                 name="selected_country"
-                className="w-full text-dark opacity-40 p-3 shadow-sm rounded-sm bg-white mt-2"
+                className=" w-full text-dark  p-3 shadow-sm rounded-sm bg-white mt-2"
                 placeholder="United Arab Emirates"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setFieldValue('selected_country', e.target.value);
@@ -162,7 +161,7 @@ const PersonalDetails = () => {
               <Field
                 name="about_me"
                 as="textarea"
-                className="w-full text-dark opacity-40 p-3 shadow-sm resize-none rounded-sm h-24 sm:h-40 bg-white mt-2"
+                className="w-full text-dark  p-3 shadow-sm resize-none rounded-sm h-24 sm:h-40 bg-white mt-2"
                 placeholder="Lorem ipsum dolor sit amet consectetu"
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                   setFieldValue('about_me', e.target.value);
