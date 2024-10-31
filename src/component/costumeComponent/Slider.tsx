@@ -15,14 +15,15 @@ type sliderProps = {
   data : any[],
   Component : React.ComponentType<{data: any}>
   bg ?: string
-  subCategory? : any[]
+  subCategory? : any[],
+  screenSize: number
 
 }
 
-const Slider:React.FC<sliderProps> = ({data , Component , bg , subCategory}) => {
+const Slider:React.FC<sliderProps> = ({data , Component , bg , subCategory,screenSize}) => {
 
   const {t} = useTranslation()
-  const screenSize = useScreenSize()
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const handleCheckCategory = ()=>{

@@ -37,7 +37,7 @@ const CartSlider: React.FC<any> = ({ data }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-5 hover:scale-105 hover:border-yalwe hover:border duration-300 transition-all max-w-[300px] min-w-[256px] mt-7 ">
+    <div className="bg-white shadow-lg rounded-lg p-5 hover:scale-105 hover:border-yalwe hover:border duration-300 transition-all max-w-[300px] min-w-[280px] mt-7 ">
       {/* Image */}
       <div className="relative">
         <img
@@ -90,7 +90,7 @@ const CartSlider: React.FC<any> = ({ data }) => {
             <img src={frame} alt="user icon" />
             {productCart.branch}
           </div>
-          <div className="flex items-center  text-sm justify-end">
+          <div className="flex items-center  text-sm ">
             <img src={ice} alt="user icon" />
             {productCart.air}
           </div>

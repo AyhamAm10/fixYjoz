@@ -7,11 +7,12 @@ import { QueryKey, useQuery } from "@tanstack/react-query";
 import { LongStaleTime } from "../../api/API__information_conect";
 import { getProductByCategory } from "../../redux/slice/ProductByCategoru";
 import { AddNotification } from "../../utails/message";
+import useScreenSize from "../../hooks/useScreenSize";
 
 const CarSLider: React.FC = () => {
   const products = useSelector((state: any) => state.productByCategorySlice);
   const dispatch = useDispatch();
-
+  const {screenSize,setMaxElementsNumber,setPaddingSize,setWidthElement} = useScreenSize()
   const { data , error } = useQuery<unknown, Error, { data: any[] }, QueryKey>({
     queryKey: ["product category "],
     queryFn: useGetProductByCategory,
@@ -27,12 +28,16 @@ const CarSLider: React.FC = () => {
   },[error])
 
   useEffect(() => {
+  
     if (data) {
       dispatch(getProductByCategory(data.data));
       console.log(products)
     }
   }, [data]);
-
+useEffect(()=>{
+  setMaxElementsNumber(5)
+    setWidthElement(330)
+},[])
   return (
     <div>
       {products && (
@@ -41,6 +46,7 @@ const CarSLider: React.FC = () => {
             <Slider
               data={products.productByCategory[0].products}
               Component={CartSlider}
+              screenSize={screenSize}
               // bg="#F6F5F5"
               subCategory={products.productByCategory[0].category.sub_categories}
             />
@@ -49,23 +55,27 @@ const CarSLider: React.FC = () => {
               Component={CartSlider}
               bg="#F8F8F8"
               subCategory={products.productByCategory[1].category.sub_categories}
+              screenSize={screenSize}
             />
             <Slider
               data={products.productByCategory[2].products}
               subCategory={products.productByCategory[2].category.sub_categories}
               Component={CartSlider}
+              screenSize={screenSize}
               bg="#F6F5F5"
             />
             <Slider
               data={products.productByCategory[3].products}
               subCategory={products.productByCategory[3].category.sub_categories}
               Component={CartSlider}
+              screenSize={screenSize}
               bg="#F8F8F8"
             />
             <Slider
               data={products.productByCategory[4].products}
               subCategory={products.productByCategory[4].category.sub_categories}
               Component={CartSlider}
+              screenSize={screenSize}
               bg="#F6F5F5"
             />
           </div>

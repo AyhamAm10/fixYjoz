@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 
 function useScreenSize() {
-  const [screenSize, setScreenSize] = useState(getScreenSize());
-
+  const [widthElement, setWidthElement] = useState(414);
+  const [maxElementsNumber, setMaxElementsNumber] = useState(4);
+  const [paddingSize,setPaddingSize] = useState(120)
+  const [screenSize, setScreenSize] = useState<number>(0);
+  
   function getScreenSize() {
     const width = window.innerWidth;
- 
-    if(width <= 1924){
-      return Math.round((width-120)/414)
-    }else{
-      return 4;
+    if(width <= 600){
+      return Math.round((width-paddingSize)/widthElement)+0.3
+    }else if(width > 600 &&width <= 1924){
+      return Math.round((width-paddingSize)/widthElement)
+    }else {
+      return maxElementsNumber
     }
+    
   }
 
   useEffect(() => {
+    setScreenSize(getScreenSize());
     const handleResize = () => {
+
       setScreenSize(getScreenSize());
     };
 
@@ -23,9 +30,17 @@ function useScreenSize() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [widthElement,paddingSize,maxElementsNumber]);
 
-  return screenSize;
+  return {
+    screenSize,
+    // widthElement,
+    // maxElementsNumber,
+    // paddingSize,
+    setMaxElementsNumber,
+    setPaddingSize,
+    setWidthElement
+  };
 }
 
 export default useScreenSize;

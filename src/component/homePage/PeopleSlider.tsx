@@ -14,7 +14,7 @@ type sliderProps = {
 };
 
 const Slider: React.FC<sliderProps> = ({ data, Component, bg }) => {
-  const sizeScreen:number = useScreenSize()
+const {screenSize} = useScreenSize()
   const {t} = useTranslation()
   return (
     <>
@@ -31,7 +31,7 @@ const Slider: React.FC<sliderProps> = ({ data, Component, bg }) => {
           </h2>
           <Swiper
             spaceBetween={30}
-            slidesPerView={sizeScreen}
+            slidesPerView={screenSize}
             loop={true}
             autoplay={{
               delay: 2500,
