@@ -10,6 +10,21 @@ import img2 from "../../assets/Frame 5.png";
 import img3 from "../../assets/Frame 6.png";
 import prand from "../../assets/payment-methods.Dg8SnOJZ 1.png";
 const Footer: React.FC = () => {
+
+  const linksApp = [
+    {
+      img :img1,
+      link:"https://play.google.com/store/apps/details?id=com.lootah.yjoz"
+    },
+    {
+      img :img2,
+      link:"https://apps.apple.com/us/app/yjoz/id1638068042"
+    },
+    {
+      img :img3,
+      link:"https://appgallery.huawei.com/app/C107312115"
+    }
+  ]
   const sotialIcon = [
     {
       imgs: facebook,
@@ -127,8 +142,10 @@ const Footer: React.FC = () => {
               className=" py-10"
             />
             <div className="flex flex-row gap-6 flex-wrap justify-center sm:justify-normal ">
-              {[img1, img2, img3].map((img, ind) => (
-                <img src={img} className="[aspect-ratio:3/1] min-w-[170px] w-[min(220px,35vw)] " key={ind} />
+              {linksApp.map((link, ind) => (
+                <a href={link.link}>
+                  <img src={link.img} className="[aspect-ratio:3/1] min-w-[170px] w-[min(220px,35vw)] " key={ind} />
+                </a>
               ))}
             </div>
           </div>

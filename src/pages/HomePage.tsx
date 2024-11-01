@@ -20,7 +20,7 @@ const HomePage:React.FC = () => {
       <CarSLider />
       <PeopleSayAbuoyUs />
       <BlogHome />
-      <Partners />
+      <Partners displayBtn={true} />
       </div>
     </div>
   )
