@@ -82,9 +82,9 @@ const Address = () => {
           <LocationMarker setPosition={setPosition} />
         </MapContainer>
       </div> */}
-      <div className=" flex flex-col sm:flex-row items-center justify-between">
-        <div className=" items-center gap-1 my-3 sm:my-6 md:my-9 text-sm  text-red font-medium">
-          <span className="text-[#323232]">I agree to YJOZ</span>
+      <div className=" flex flex-col sm:flex-row flex-wrap gap-5 items-center justify-between">
+        <div className=" items-center [flex:1] gap-1 my-3 sm:my-6 md:my-9 text-sm  text-red font-medium min-w-52">
+          <span className="text-[#323232] text-[min(3vw,12px)]">I agree to YJOZ</span>
           public Agreement , Terms & Privacy Policy.
           <svg
             className=" cursor-pointer inline"
@@ -103,12 +103,12 @@ const Address = () => {
             />
           </svg>
         </div>
-        <div className="flex   gap-4 flex-col sm:flex-row justify-center  items-center sm:gap-6 md:gap-10">
-          <button className="w-full sm:w-auto  text-sm font-bold px-20 py-3 border border-red text-red rounded-md">
+        <div className="w-full flex [flex:1]  gap-4 flex-col sm:flex-row justify-center  items-center sm:gap-6 md:gap-10">
+          <button className="w-full sm:w-auto [flex:1] text-sm font-bold px-20 py-3 border border-red text-red rounded-md min-w-52 block">
             Cancel
           </button>
           {/* <CostumBtn value="Lend Your items" style="w-full sm:w-auto" /> */}
-          <button type="submit" className={`rounded-md text-white  px-10 py-3 bg-gradient-to-r from-red to-yalwe font-bold text-sm w-full sm:w-auto`}>Lend Your items</button>
+          <button type="submit" className={`rounded-md text-white [flex:1]  px-10 py-3 bg-gradient-to-r from-red to-yalwe font-bold text-sm w-full sm:w-auto block min-w-52 `}>Lend Your items</button>
         </div>
       </div>
     </div>
