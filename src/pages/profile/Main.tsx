@@ -12,7 +12,6 @@ import {
   axiosClaint,
   endPoints,
   LongStaleTime,
-  validToken,
 } from "../../api/API__information_conect";
 import { UserProfile } from "../../type/reduxType";
 import { QueryKey, useQuery } from "@tanstack/react-query";

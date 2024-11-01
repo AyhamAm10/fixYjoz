@@ -84,7 +84,7 @@ const AddressPage = () => {
   };
 
   const { data, isLoading , refetch } = useQuery<unknown, Error, {data:any} | null, QueryKey>({
-    queryKey: ["categorys api "],
+    queryKey: ["get address api  "],
     queryFn: getAddress,
     staleTime: LongStaleTime,
     refetchOnWindowFocus: false,
@@ -112,7 +112,7 @@ const AddressPage = () => {
       {data && (
         <div className="flex items-center flex-wrap gap-5">
           {data.data.data.map((item:any)=>(
-          <AddressCart data={item} refetch={refetch} />
+          <AddressCart hasBtn={true} data={item} refetch={refetch} />
           ))}
         </div>
       )}
@@ -175,7 +175,7 @@ const AddressPage = () => {
                   onChange={(e) => handleSelectCity(e.target.value)}
                   className="bg-[#F2F1F1] w-full p-3 rounded-md text-dark opacity-40 font-semibold text-lg sm:text-xl"
                 >
-                  <option value="Dubai">select city</option>
+                  <option value="">select city</option>
                   <option value="Dubai">Dubai</option>
                 </select>
                 <p className="text-dark text-lg xl:text-xl font-medium opacity-80 flex items-center gap-2">

@@ -1,13 +1,37 @@
-import { useEffect, useState } from "react";
-import LocationMarker from "../address/MapAddress";
-import { LatLngLiteral } from "leaflet";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { useCookies } from "react-cookie";
+import { axiosClaint, endPoints, LongStaleTime } from "../../../api/API__information_conect";
+import AddressCart from "../address/AddressCart";
+import { QueryKey, useQuery } from "@tanstack/react-query";
+import { useDispatch } from "react-redux";
+import { setFormData } from "../../../redux/slice/createProjectSlice";
+import { useState } from "react";
+
+
 const Address = () => {
-  const [posation, setPosition] = useState<LatLngLiteral | null>(null);
 
-  useEffect(()=>{
+  const [cookie] = useCookies(["token"]);
+  const dispatch = useDispatch()
+  const [selectedAddress, setSelectedAddress] = useState<null | string>(null);
+  const getAddress = async () => {
+    const res = axiosClaint.get(endPoints.get.getAddrres, {
+      headers: {
+        Authorization: `Bearer ${cookie.token}`,
+      },
+    });
+    return res;
+  };
 
-  },[posation])
+  const { data, } = useQuery<unknown, Error, {data:any} | null, QueryKey>({
+    queryKey: ["get address api "],
+    queryFn: getAddress,
+    staleTime: LongStaleTime,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchInterval: false,
+  });
+
+  console.log(data)
+
   return (
     <div className="py-5 sm:py-10 lg:py-12">
       <div className="flex items-center gap-3 ">
@@ -26,10 +50,25 @@ const Address = () => {
         </svg>
       </div>
       <p className="py-3 sm:py-5 text-xl font-medium text-[#B0B0B0] ">
-        Lorem ipsum dolor sit amet consectetur. Velit.
+        {/* Lorem ipsum dolor sit amet consectetur. Velit. */}
       </p>
-      {/* <img src={img} alt="address" className="w-full" /> */}
-      <div className=" overflow-hidden h-[300px]">
+      {data && (
+    <div className="flex items-center flex-wrap gap-5">
+      {data.data.data.map((item: any) => (
+        <button
+          key={item.id}
+          className={`border ${selectedAddress === item.id ? 'border-red' : 'border-primery'}`}
+          onClick={() => {
+            dispatch(setFormData({ address_id: item.id }));
+            setSelectedAddress(item.id);
+          }}
+        >
+          <AddressCart data={item} />
+        </button>
+      ))}
+    </div>
+  )}
+      {/* <div className=" overflow-hidden h-[300px]">
         <MapContainer
           center={[24.4539, 54.3773]}
           zoom={13}
@@ -42,7 +81,7 @@ const Address = () => {
           />
           <LocationMarker setPosition={setPosition} />
         </MapContainer>
-      </div>
+      </div> */}
       <div className=" flex flex-col sm:flex-row items-center justify-between">
         <div className=" items-center gap-1 my-3 sm:my-6 md:my-9 text-sm  text-red font-medium">
           <span className="text-[#323232]">I agree to YJOZ</span>

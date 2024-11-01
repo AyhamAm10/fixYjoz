@@ -7,7 +7,6 @@ interface LocationMarkerProps {
   setPosition: React.Dispatch<React.SetStateAction<LatLngLiteral | null>>;
 }
 
-// Coordinates for Abu Dhabi
 const ABU_DHABI_COORDINATES: LatLngLiteral = { lat: 24.4539, lng: 54.3773 };
 
 const LocationMarker: React.FC<LocationMarkerProps> = ({ setPosition }) => {
