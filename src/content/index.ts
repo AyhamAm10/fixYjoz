@@ -36,8 +36,8 @@ export const headerList:headerType[] = [
     },
     {
         id : 4 ,
-        title : "Plog",
-        _id: "/plog",
+        title : "Our App",
+        _id: "/our_app",
         active: false
     },
     {

@@ -21,6 +21,7 @@ import Plan from "./pages/Plan";
 import{ ReactNotifications } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
+import DownLoadApp from "./pages/DownLoadApp";
 
 const App: React.FC = () => {
 
@@ -40,6 +41,7 @@ const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/search" element={<Category />} />
+            <Route path="/our_app" element={<DownLoadApp />} />
             <Route path="/Product/:id" element={<DetailProdect />} />
             <Route path="/FAQ`s" element={<FAQs />} />
             <Route path="/contactUs" element={<ContactUs />} />
