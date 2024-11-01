@@ -6,7 +6,7 @@ type props = {
 }
 const SayCart:React.FC<props> = ({revers}) => {
   return (
-    <div className={`flex min-w-[20rem] max-w-[21rem] gap-5 ${revers ?"flex-col-reverse": "flex-col " }  h-[500px]`}>
+    <div className={`flex w-[336px] gap-5 ${revers ?"flex-col-reverse": "flex-col " }  h-[500px]`}>
         <div className={`px-12 py-16 flex flex-col gap-6 w-full bg-[#2E3947] ${revers ? "rounded-tl-lg":"rounded-bl-lg"} h-3/4`}>
             <img src={packteck} alt="packteck" className=' w-[2rem]  left-0 top-0' />
             <div>

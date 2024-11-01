@@ -34,9 +34,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className=" px-2 sm:px-4 md:px-8 bg-primery  sm:bg-[#F2F5FA] pt-4 pb-10 relative ">
+    <footer className=" px-2 sm:px-4 md:px-8 bg-primery  sm:bg-[#F2F5FA] pt-4 pb-4 relative ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10  max-w-[2044px] mx-auto gap-8 gap-x-3">
-        <div className="lg:pb-24 pb-2 lg:col-span-2 ">
+        <div className="lg:pb-4 pb-2 lg:col-span-2 ">
           <img src={logo} className="pb-10 sm:pb-0 mx-auto" alt="yjoz logo" />
           <p className="text-[#7A7A7A] text-[15px] sm:text-sm py-3   ">
             Lorem ipsum dolor sit amet consectetur. Convallis nam in et netus
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             
           </div>
         </div>
-        <div className=" py-2 lg:py-20 sm:px-10 px-2 lg:col-span-2">
+        <div className=" py-2 lg:py-4 sm:px-10 px-2 lg:col-span-2">
           <h3 className="text-dark sm:pb-10 text-sm sm:text-lg md:text-2xl font-semibold">
             Pages
           </h3>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div className=" py-2 lg:py-20  px-2 lg:col-span-2">
+        <div className=" py-2 lg:py-4  px-2 lg:col-span-2">
           <h3 className="text-dark sm:pb-10 text-sm sm:text-lg md:text-2xl font-semibold">
             Contact Us
           </h3>
@@ -128,7 +128,7 @@ const Footer: React.FC = () => {
             />
             <div className="flex flex-row gap-6 flex-wrap justify-center sm:justify-normal ">
               {[img1, img2, img3].map((img, ind) => (
-                <img src={img} className="h-20 w-[220px] " key={ind} />
+                <img src={img} className="[aspect-ratio:3/1] min-w-[170px] w-[min(220px,35vw)] " key={ind} />
               ))}
             </div>
           </div>
