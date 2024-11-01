@@ -17,6 +17,7 @@ import Pagination from "../component/category/Pagination";
 import { isLoadedApi, notLoadedApi } from "../redux/slice/searchApiIsLoaded";
 // import Brands from "../component/category/Brands";
 import { useGetBrands } from "../api/getAPIs/useGitBrandsByCategory";
+import { addAttribute } from "../redux/slice/searchApiSlice";
 
 const Category = () => {
   const [subCategory, setSubCategory] = useState<any[] | null>(null);
@@ -27,7 +28,6 @@ const Category = () => {
   const dispatch = useDispatch();
   const [loading, setLoaing] = useState<boolean>(false);
   const [selectedcategory, setSelectedCategory] = useState<any>(null);
-  console.log(selectedcategory);
 
   const productsFiltering = useSelector(
     (state: any) => state.filterProductSlice?.productsFiltering
@@ -63,6 +63,9 @@ const Category = () => {
 
   const handleSelectChange = (newValue: string) => {
     setSelectedValue(newValue);
+    dispatch(addAttribute({sorting:newValue}))
+    console.log(selectedValue)
+
   };
 
   const handleSlider = (id: number) => {
@@ -136,7 +139,7 @@ const Category = () => {
         <div className="flex items-center gap-2 md:col-span-5 sm:gap-5 flex-wrap">
           <Select
             value={selectedValue}
-            data={["Option 1", "option 2"]}
+            data={["high_to_low", "low_to_high" , "popular" , "newest"]}
             onChange={handleSelectChange}
           />
           <TagSelected />

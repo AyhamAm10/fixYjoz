@@ -18,7 +18,9 @@ export const endPoints = {
     Subscriptions:"get_subscriptions",
     payment : 'payment_methods',
     renting: "get_renting_units",
-    getFevorite: "get_user_favorite"
+    getFevorite: "get_user_favorite?page=1",
+    gitProdile: "get_profile/",
+    settings : "settings"
   },
   post: {
     filter_product: "filter_product",

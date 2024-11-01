@@ -4,15 +4,46 @@ import PhoneInput, { CountryData } from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { updateField } from "../../../redux/slice/PersonalDetailsForm";
 import { UserProfile } from "../../../type/reduxType";
-import { axiosClaint, endPoints, validToken } from "../../../api/API__information_conect";
-import { useState } from "react";
+import { axiosClaint, endPoints, LongStaleTime } from "../../../api/API__information_conect";
+import { useEffect, useState } from "react";
 import Loader from "../../layout/Loader";
+import { useCookies } from "react-cookie";
+import { QueryKey, useQuery } from "@tanstack/react-query";
+import i18next from "i18next";
 
 const PersonalDetails = () => {
   const dispatch = useDispatch();
+  const [cookie] = useCookies(["token"])
   const userData: UserProfile = useSelector((state: any) => state.userProfileSlice);
   console.log(userData)
   const [loading , setLoading] = useState<boolean>(false)
+  const currentLanguage = i18next.language;
+  const handleGetSetting = async ()=>{
+    const res =await axiosClaint.get(endPoints.get.settings , {
+      headers: {
+        Authorization: `Baerer ${cookie.token}`
+      }
+    })
+    return res.data
+  }
+
+  const { data } = useQuery<
+    unknown,
+    Error,
+    any ,
+    QueryKey
+  >({
+    queryKey: ["get setting api"],
+    queryFn: handleGetSetting,
+    staleTime: LongStaleTime,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchInterval: false,
+  });
+
+  useEffect(()=>{
+    console.log(data?.data.supported_countries)
+  },[data])
 
   return (
     <div className="py-4 sm:py-6 md:py-8">
@@ -24,7 +55,7 @@ const PersonalDetails = () => {
         :
         <Formik
            initialValues={{
-            first_name: userData.first_name,
+            first_name: userData?.first_name,
             last_name: userData.last_name,
             email: userData.email,
             phone_number: userData.phone_number,
@@ -38,7 +69,7 @@ const PersonalDetails = () => {
             try {
               const res = await axiosClaint.post(endPoints.post.editProfile,{id:userData?.id , ...values} , {
                 headers: {
-                  Authorization: `Bearer ${validToken}`,
+                  Authorization: `Bearer ${cookie.token}`,
                 },
               })
               console.log(res)
@@ -121,7 +152,6 @@ const PersonalDetails = () => {
                   const countryCode = country.dialCode;
                   const phoneWithoutCode = value.replace(`+${countryCode}`, '');
 
-                  // تحديث القيم في Redux
                   setFieldValue('country_code', countryCode);
                   setFieldValue('phone_number', phoneWithoutCode);
                   dispatch(updateField({ field: 'country_code', value: countryCode }));
@@ -144,6 +174,7 @@ const PersonalDetails = () => {
                 Country
               </label>
               <Field
+                as="select"
                 name="selected_country"
                 className=" w-full text-dark  p-3 shadow-sm rounded-sm bg-white mt-2"
                 placeholder="United Arab Emirates"
@@ -151,7 +182,14 @@ const PersonalDetails = () => {
                   setFieldValue('selected_country', e.target.value);
                   dispatch(updateField({ field: 'selected_country', value: e.target.value }));
                 }}
-              />
+              >
+                <option value="" disabled selected>Select your country</option>
+                {data?.data.supported_countries.map((item : any)=>(
+                  <option key={item.id} value={item.id} >{item[`country_${currentLanguage}`]} pp</option>          
+
+                ))
+                }
+              </Field>
             </div>
 
             <div className="w-full sm:col-span-2">

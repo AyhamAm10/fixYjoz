@@ -68,15 +68,15 @@ const Categorys: React.FC = () => {
       <div className="my-10">
         {isLoading && <div className="text-center text-7xl ">{t('loading')}</div>}
         {categotysData && (
-          <div  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 lg:gap14 px-3 sm:px-5 md:px-10 cursor-pointer">
+          <div  className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10 lg:gap14 px-3 sm:px-5 md:px-10 cursor-pointer">
             {categotysData.category.map((item: any) => (
-              <button onClick={()=>handleChickCategory(item.id)} key={item.category} className="group overflow-hidden bg-gradient-to-r lg:bg-none lg:hover:bg-gradient-to-b from-red to-yalwe hover:scale-110 transition-all duration-300 rounded-lg  lg:rounded-md relative flex flex-col lg:flex-row items-center gap-2 sm:gap-4 md:gap-5 lg:px-8  lg:py-2 bg-white shadow-md ">
+              <button onClick={()=>handleChickCategory(item.id)} key={item.category} className="group overflow-hidden bg-gradient-to-r lg:bg-none lg:hover:bg-gradient-to-b from-red to-yalwe hover:scale-110 transition-all duration-300 rounded-lg  lg:rounded-md relative flex flex-col lg:flex-row  lg:justify-normal items-center gap-2 sm:gap-4 md:gap-5 lg:px-8  lg:py-2 bg-white shadow-md  ">
                 <img
                   src={item.image}
                   className=" w-8 sm:w-10 md:w-12 lg:w-[3.25rem] pt-2 lg:py-0 "
                   alt={"category icon "}
                 />
-                <h1 className="w-full block bg-white lg:[background-color:transparent]  pb-2 pt-3 lg:py-0 text-dark lg:group-hover:text-white text-sm md:text-base lg:text-[15px] xl:text-xl font-semibold uppercase  ">{item.category}</h1>
+                <h1 className="w-full  bg-white lg:[background-color:transparent]  pb-2 pt-3 lg:py-0 text-dark lg:group-hover:text-white text-[max(13px,2.5vw)] md:text-base lg:text-[15px] xl:text-xl font-semibold uppercase  flex-grow text-center grid place-items-center ">{item.category}</h1>
                 <span className="hidden lg:block absolute h-full left-0 top-0 w-3 bg-linear bg-gradient-to-b from-red to-yalwe">
 
                 </span>

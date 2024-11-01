@@ -13,13 +13,13 @@ const WorkingHour = () => {
         </button>
       </div>
       <SliderLayout style="flex py-3 sm:py-6 md:py-9 md:w-[90rem] sm:w-[80rem] w-[70rem]  justify-between mx-auto">
-            <WorkingCart active={false} dayOff={true} />
+            {/* <WorkingCart active={false} dayOff={true} />
             <WorkingCart active={false} dayOff={false} />
             <WorkingCart active={false} dayOff={false} />
             <WorkingCart active={true} dayOff={false} />
             <WorkingCart active={false} dayOff={false} />
             <WorkingCart active={false} dayOff={true} />
-            <WorkingCart active={false} dayOff={false} />
+            <WorkingCart active={false} dayOff={false} /> */}
       </SliderLayout>
     </div>
   );

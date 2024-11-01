@@ -11,12 +11,20 @@ import money from "../../assets/productDetails/money.svg";
 import flowpite from "../../assets/productDetails/flowbite_profile-card-outline.svg";
 import view from "../../assets/productDetails/view.svg";
 import CostumBtn from "../costumeComponent/CostumBtn";
+import { Link } from "react-router-dom";
+import { axiosClaint, endPoints } from "../../api/API__information_conect";
+import { useCookies } from "react-cookie";
+import { useState } from "react";
 const Cart: React.FC = () => {
 
   const product = useSelector(
     (state: any) => state.productDetailsSlice
   ).productDetailsState;
 
+  const [is_fevorite, setIsFevorite] = useState<boolean | null>(product.favorite);
+  const [cookie] = useCookies(["token"]);
+
+  console.log(product)
   const handleShareClick = () => {
     if (navigator.clipboard) {
       const linkToCopy = product?.link ?? "No link available";
@@ -29,6 +37,26 @@ const Cart: React.FC = () => {
         .catch((err) => {
           console.error("Failed to copy the link: ", err);
         });
+    }
+  };
+
+  const addFevorite: () => Promise<any> = async () => {
+
+    try {
+      const res:any = await axiosClaint.post(
+        product.favorite?endPoints.post.removeFavorite :
+        endPoints.post.AddFavorite,
+        { id: product.id },
+        {
+          headers: {
+            Authorization: `Bearer ${cookie.token}`,
+          },
+        }
+      );
+      if(res.status == 200)
+      setIsFevorite(product.favorite? false: true);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -58,7 +86,25 @@ const Cart: React.FC = () => {
             </svg>
           </div>
           {/* fivoret icon  */}
-          <div className="p-1 rounded-full shadow-md">
+          <button
+          onClick={addFevorite}
+          className="p-1 rounded-full shadow-md"
+        >
+          <svg
+            className="text-red"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.1 18.55L12 18.65L11.89 18.55C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5C9.04 5 10.54 6 11.07 7.36H12.93C13.46 6 14.96 5 16.5 5C18.5 5 20 6.5 20 8.5C20 11.39 16.86 14.24 12.1 18.55ZM16.5 3C14.76 3 13.09 3.81 12 5.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5C2 12.27 5.4 15.36 10.55 20.03L12 21.35L13.45 20.03C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z"
+              fill={is_fevorite ? "red" : "#333"}
+            />
+          </svg>
+        </button>
+          {/* <div className="p-1 rounded-full shadow-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -71,7 +117,7 @@ const Cart: React.FC = () => {
                 fill="#FF4A4A"
               />
             </svg>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="flex items-center gap-2 text-[#959595] mt-3">
@@ -144,7 +190,9 @@ const Cart: React.FC = () => {
         </div>
       )}
       <div>
+        <Link to={`/profile/${product.owner.id}`}>
         <img src={view} alt="" className="w-5 " />
+        </Link>
       </div>
       <div className="w-full p-5">
         <CostumBtn value="Order Now" style="w-full" />

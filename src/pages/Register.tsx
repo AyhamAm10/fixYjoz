@@ -13,6 +13,7 @@ import { axiosClaint, endPoints } from "../api/API__information_conect";
 import { bodyReqVerify } from "../redux/slice/verifyCode";
 import { useDispatch } from "react-redux";
 import arrow from "../assets/login/Arrows.png"
+import { setVerifyInfo } from "../redux/slice/setDataVerifyCode";
 
 const Register: React.FC = () => {
   const [state, setState] = useState({
@@ -31,6 +32,7 @@ const Register: React.FC = () => {
     }),
     onSubmit: (values) => {
       setState((priv)=>{return{...priv , email: values.email}});
+      dispatch(setVerifyInfo({contact :values.email }))
     },
   });
 

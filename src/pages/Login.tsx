@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import Loader from "../component/layout/Loader"
 import { useTranslation } from 'react-i18next';
 import arrow from "../assets/login/Arrows.png"
+import { setVerifyInfo } from "../redux/slice/setDataVerifyCode";
 const Login: React.FC = () => {
   const [state, setState] = useState({
     email: "",
@@ -46,11 +47,13 @@ const Login: React.FC = () => {
           ...prevState,
           phoneNumber: values.input,
         }));
+        dispatch(setVerifyInfo({contact :values.input }))
       } else if (emailRegex.test(values.input)) {
         setState((prevState) => ({
           ...prevState,
           email: values.input,
         }));
+        dispatch(setVerifyInfo({contact :values.input }))
       }
     },
   });
