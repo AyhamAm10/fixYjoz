@@ -17,9 +17,19 @@ import { UserProfile } from "../../type/reduxType";
 import { QueryKey, useQuery } from "@tanstack/react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserProfile } from "../../redux/slice/userProfileSlice";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [cookie] = useCookies(["token"]);
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+      if(!cookie.token){
+          navigate("/login")
+      }
+  })
+
   const dispatch = useDispatch();
   const userData:UserProfile = useSelector((state: any) => state.userProfileSlice);
   const fetchProfile: () => Promise<UserProfile> = async () => {
@@ -36,9 +46,9 @@ const Main = () => {
     }
   };
 
-  const { data } = useQuery<
+  const { data , error } = useQuery<
     unknown,
-    Error,
+    any,
    UserProfile ,
     QueryKey
   >({
@@ -50,6 +60,15 @@ const Main = () => {
     refetchInterval: false,
   });
 
+  useEffect(()=>{
+    if(error){
+      if (error.response && error.response.status === 401) {
+        navigate('/login'); 
+    } else {
+        console.error('Error fetching profile:', error);
+    }
+    }
+  },[error])
   useEffect(() => {
     if(data)
     dispatch(setUserProfile(data));

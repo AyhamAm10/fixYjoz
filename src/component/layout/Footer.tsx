@@ -50,10 +50,10 @@ const Footer: React.FC = () => {
 
   return (
     <footer className=" px-2 sm:px-4 md:px-8 bg-primery  sm:bg-[#F2F5FA] pt-4 pb-4 relative ">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10  max-w-[2044px] mx-auto gap-8 gap-x-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10 items-start  max-w-[2044px] mx-auto gap-8 gap-x-3">
         <div className="lg:pb-4 pb-2 lg:col-span-2 ">
           <img src={logo} className="pb-10 sm:pb-0 mx-auto" alt="yjoz logo" />
-          <p className="text-[#7A7A7A] text-[15px] sm:text-sm py-3   ">
+          {/* <p className="text-[#7A7A7A] text-[15px] sm:text-sm py-3   ">
             Lorem ipsum dolor sit amet consectetur. Convallis nam in et netus
             vehicula fames in blandit. Gravida in at vestibulum est. Ut dolor
             tortor sit eu quis felis diam fermentum id. Dis vitae purus nunc
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             tortor lectus. <br />
             Venenatis id nunc sit lobortis in sed egestas amet. Eu egestas
             mattis vitae sit tellus nunc.
-          </p>
+          </p> */}
           <div className="pt-10 flex items-center gap-8">
             {
                 sotialIcon.map((item , ind:number)=>(
@@ -139,7 +139,7 @@ const Footer: React.FC = () => {
             <img
               src={prand}
               alt="payment-methods"
-              className=" py-10"
+              className=" pb-10"
             />
             <div className="flex flex-row gap-6 flex-wrap justify-center sm:justify-normal ">
               {linksApp.map((link, ind) => (

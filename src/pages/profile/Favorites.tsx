@@ -38,7 +38,7 @@ const Favorites = () => {
     <div className="flex items-start justify-between sm:col-span-2">
       <div className="text-dark text-lg sm:text-xl md:text-2xl lg:text-[2rem] font-semibold">
         <h1>Favorites</h1>
-        <p className="text-[#B0B0B0] text-xs md:text-sm leading-4 font-normal my-4 sm:my-7">View and Manage your favotire</p>
+        <p className="text-[#B0B0B0] text-xs md:text-sm leading-4 font-normal my-4 sm:mt-7">View and Manage your favotire</p>
       </div>
     </div>
     <div>
@@ -51,7 +51,7 @@ const Favorites = () => {
 
       {
         <div>
-          <div className="grid mt-9 lg:max-w-[90rem] grid-cols-1 sm:grid0-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-around mx-auto gap-3 sm:gap-8  ">
+          <div className="grid  lg:max-w-[90rem] grid-cols-1 sm:grid0-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-around mx-auto gap-3 sm:gap-8  ">
             {
               data?.data.map((item:any)=>(
                   <CartSlider data={item} />

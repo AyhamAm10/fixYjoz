@@ -8,9 +8,11 @@ import AddNewItem from './profile/AddNewItem';
 import Favorites from './profile/Favorites';
 import AddressPage from './profile/AddressPage';
 import Programe from './profile/Programe';
-import { useCookies } from 'react-cookie';
+import {  useCookies } from 'react-cookie';
 const ProfilePages = () => {
     const [asideList , setAsideList] = useState(profilePageList)
+
+    
     const [cookie] = useCookies(["token"])
     const navigate = useNavigate()
 

@@ -32,7 +32,7 @@ const MobileList:React.FC<props> = ({setMenuOpen,isProfilePage}) => {
                   ))
                 }
             </ul>
-            <div className="p-2 flex gap-5 items-center  ">
+            <div className="p-2 flex gap-5 items-center cursor-pointer  ">
 
             <img src={logoutImg} alt=""  className="bg-red p-2  rounded-full"/>
             {isProfilePage && <span className="text-red">Log out</span>}

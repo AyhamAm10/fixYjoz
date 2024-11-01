@@ -1,7 +1,6 @@
 
 import star from "../assets/profile/Star 1.png"
 import WorkingHour from "../component/profile/WorkingHour";
-import OwnerReview from "../component/profile/OwnerReview";
 import { QueryKey, useQuery } from "@tanstack/react-query";
 import { useGetCompanyApi } from "../api/getAPIs/useGetCompanyApi";
 import { useParams } from "react-router-dom";
@@ -47,7 +46,7 @@ const ProfileCompany = () => {
         </div>
       </div>
       <WorkingHour data={data?.data.working_hours} />
-      <OwnerReview />
+      {/* <OwnerReview /> */}
     </section>
   );
 };

@@ -24,7 +24,7 @@ const AddressCart: React.FC<props> = ({ data, refetch , hasBtn}) => {
 
   const handleDeleteAddress = async () => {
     try {
-      axiosClaint.post(
+      await axiosClaint.post(
         endPoints.post.deletedAddress,
         { address_id: data.id },
         {
@@ -33,9 +33,11 @@ const AddressCart: React.FC<props> = ({ data, refetch , hasBtn}) => {
           },
         }
       );
-      if (refetch) refetch();
+      
     } catch (error) {
       console.log(error);
+    } finally{
+      if (refetch) refetch();
     }
   };
   return (

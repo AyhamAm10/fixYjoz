@@ -8,7 +8,7 @@ import { categorysType } from "../../type/reduxType";
 import { LongStaleTime } from "../../api/API__information_conect";
 import { useTranslation } from "react-i18next";
 import { addNewFiltering } from "../../redux/slice/searchApiSlice";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 interface resData {
   data: categorysType;
@@ -43,7 +43,7 @@ const Categorys: React.FC = () => {
 
   const handleChickCategory = (id:string)=>{
     dispatch(addNewFiltering({category_id: id}))
-    navigation("/category")
+    navigation("/search")
   }
 
   return (
@@ -70,6 +70,7 @@ const Categorys: React.FC = () => {
         {categotysData && (
           <div  className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10 lg:gap14 px-3 sm:px-5 md:px-10 cursor-pointer">
             {categotysData.category.map((item: any) => (
+              // <Link to={'/search'}>
               <button onClick={()=>handleChickCategory(item.id)} key={item.category} className="group overflow-hidden bg-gradient-to-r lg:bg-none lg:hover:bg-gradient-to-b from-red to-yalwe hover:scale-110 transition-all duration-300 rounded-lg  lg:rounded-md relative flex flex-col lg:flex-row  lg:justify-normal items-center gap-2 sm:gap-4 md:gap-5 lg:px-8  lg:py-2 bg-white shadow-md  ">
                 <img
                   src={item.image}
@@ -78,9 +79,9 @@ const Categorys: React.FC = () => {
                 />
                 <h1 className="w-full  bg-white lg:[background-color:transparent]  pb-2 pt-3 lg:py-0 text-dark lg:group-hover:text-white text-[max(13px,2.5vw)] md:text-base lg:text-[15px] xl:text-xl font-semibold uppercase  flex-grow text-center grid place-items-center ">{item.category}</h1>
                 <span className="hidden lg:block absolute h-full left-0 top-0 w-3 bg-linear bg-gradient-to-b from-red to-yalwe">
-
                 </span>
               </button>
+              // </Link>
             ))}
           </div>
         ) }
