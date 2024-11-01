@@ -61,7 +61,7 @@ const Cart: React.FC = () => {
   };
 
   return (
-    <div className="md:bg-white rounded-md md:shadow-md px-6 sm:px-8 md:px-10 h-fit py-4 sm:py-6 md:py-8  md:translate-y-[-70px] flex flex-col gap-3 sm:gap-5 lg:gap-6 md:max-w-[35rem]  xl:max-w-[41rem]  ">
+    <div className="w-full lg:bg-white rounded-md lg:shadow-md px-6 sm:px-8 md:px-10 h-fit py-4 sm:py-6 md:py-8  lg:translate-y-[-70px] flex flex-col gap-3 sm:gap-5 lg:gap-6 lg:max-w-[35rem]  xl:max-w-[41rem]  ">
       <div className="flex items-start gap-3 ">
         <h3 className="text-dark w-full text-lg sm:text-3xl lg:text-4xl  font-medium ">
           {product.title}

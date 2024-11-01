@@ -1,6 +1,7 @@
 import React from "react";
 import leftArow from "../../assets/category/eva_arrow-ios-back-fill (1).svg"
 import rightArow from "../../assets/category/eva_arrow-ios-back-fill.svg"
+import useScreenSize from "../../hooks/useScreenSize";
 interface PaginationProps {
   totalPages: number | null;
   currentPage: number;

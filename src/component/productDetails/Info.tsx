@@ -29,12 +29,12 @@ const Info: React.FC = () => {
         setPages(newPage)
   }
   return (
-    <div className="w-full px-2 sm:px-5 md:px-10 lg:px-14 py-5 xl:max-w-[55rem] md:max-w-[50rem]  ">
-      <ul className="w-full flex items-center justify-between">
+    <div className="w-full px-2 sm:px-5 md:px-10 lg:px-14 py-5 xl:max-w-[55rem] lg:max-w-[50rem]  ">
+      <ul className="w-full flex-col gap-y-8 flex sm:flex-row items-center justify-between">
         {
             page.map((item)=>(
                 <li key={item.id}
-                 className={`${item.active ? "text-red" : "text-[#A1A1A1]"} text-lg sm:text-xl cursor-pointer`}
+                 className={`${item.active ? "border-b-2 border-b-red text-red sm:border-none py-5 px-9 sm:p-0" : "text-[#A1A1A1]"} text-[28px] cursor-pointer`}
                  onClick={()=>{handleClick(item.id)}}
                  >
                     {item.title}
@@ -42,6 +42,7 @@ const Info: React.FC = () => {
             ))
         }
       </ul>
+      <hr className="border-black border-1 w-full my-5" />
       <div className=" py-5">
       {
         page.map((item)=> item.active ? <item.component key={item.id} /> : null)

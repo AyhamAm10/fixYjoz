@@ -20,7 +20,7 @@ const MapComponent: React.FC<Props> = ({ latitude, longitude, address }) => {
   const position: LatLngExpression = [lat, lng]; 
 
   return (
-    <MapContainer center={position} zoom={13} style={{ height: '500px', width: '100%' }}>
+    <MapContainer center={position} zoom={13} style={{ minHeight: '219px', width: '100%',aspectRatio:2/1,borderRadius:"24px" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -37,7 +37,7 @@ const CartSlider: React.FC<any> = ({ data }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-5 hover:scale-105 hover:border-yalwe hover:border duration-300 transition-all max-w-[300px] min-w-[280px] mt-7 ">
+    <div className="bg-white shadow-lg rounded-lg p-5 hover:scale-105 hover:border-yalwe hover:border duration-300 transition-all max-w-[300px] min-w-[280px] mt-7 [flex:1]">
       {/* Image */}
       <div className="relative">
         <img

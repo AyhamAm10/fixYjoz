@@ -7,7 +7,7 @@ const Description = () => {
       ).productDetailsState;
 
   return (
-    < p className='max-h-[400px] overflow-y-scroll custom-scroll text-dark  ' dir='ltr'>
+    < p className='max-h-[400px] overflow-y-scroll  custom-scroll text-dark  ' >
         {product.description}
     </p>
   )

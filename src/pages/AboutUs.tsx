@@ -10,9 +10,9 @@ const AboutUs: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate()
   return (
-    <div className="px-3 sm:px-5 md:px-10 lg:px-20 py-10 lg:max-w-[95rem] mx-auto xl:max-w-[120rem]  ">
+    <div className="  py-10 mx-auto  [padding-inline:min(4vw,100px)] max-w-[2044px]   ">
       <HeroSection />
-      <div className="my-10 md:my-20 grid grid-cols 1 md:grid-cols-2 gap-x-5 gap-y-8 ">
+      <div className="my-10 md:my-20 grid grid-cols 1 md:grid-cols-2 gap-x-10 gap-y-12 ">
         <CardAboutUs
           img={img1}
           title={t("TheIssue")}

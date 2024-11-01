@@ -49,8 +49,22 @@
   border-radius: 8px; 
 }
 
+.custom-scroll-2::-webkit-scrollbar {
+  width: 8px; 
+}
+.custom-scroll-2::-webkit-scrollbar-track{
+  background: transparent; 
+  border-radius: 20px;
+  background-color: #F2F1F1;
+}
+
+.custom-scroll-2::-webkit-scrollbar-thumb{
+   border-radius: 20px;
+   background: rgba(51, 51, 51,0.4);
+}
+
 .custom-scroll {
-  direction: rtl;
+  /* direction: rtl; */
   scrollbar-width: thin; 
   scrollbar-color: #3CB44B transparent;
 }

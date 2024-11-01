@@ -92,10 +92,10 @@ const Category = () => {
   }, [selectedcategory]);
 
   return (
-    <div className="py-4 px-3 sm:px-6 md:px-9 lg:px-12">
+    <div className="py-4 px-3 sm:px-6 md:px-9 lg:px-12 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
         <Search />
-        <div className="flex items-center gap-2 sm:gap-5 flex-wrap">
+        <div className="flex items-center gap-2 sm:gap-5 flex-wrap ">
           <CitySelect />
           <CategorySelected
             setSubCategory={setSubCategory}
@@ -105,7 +105,7 @@ const Category = () => {
           />
         </div>
       </div>
-      <div className="py-4">
+      <div className="py-4 ">
         <div className="md:hidden">
           <Slider
             data={subCategory}
@@ -147,7 +147,7 @@ const Category = () => {
       </div>
 
       {productsFiltering && !loadedApi && (
-        <div className="mt-5 sm:mt-10 hidden md:grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 lg:gap-8 xl:gap-10">
+        <div className="mt-5 sm:mt-10 hidden md:flex flex-wrap justify-evenly lg:justify-normal  gap-5 lg:gap-8 xl:gap-10 ">
           {productsFiltering.map((data: any, index: number) => (
             <CartSlide key={index} data={data} />
           ))}
@@ -160,7 +160,7 @@ const Category = () => {
           ))}
         </div>
       )}
-      <div className="block md:hidden">
+      <div className="block md:hidden ">
         <Slider
           data={productsFiltering ?? null}
           Component={productsFiltering ? CartSlide : LoadedProducts}
@@ -168,7 +168,7 @@ const Category = () => {
         />
       </div>
 
-      <div className="flex-center my-5 sm:my-10">
+      <div className="flex-center my-5 sm:my-10 ">
         <Pagination
           onPageChange={handlePageClick}
           currentPage={page}

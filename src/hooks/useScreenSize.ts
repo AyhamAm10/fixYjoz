@@ -9,7 +9,10 @@ function useScreenSize() {
   function getScreenSize() {
     const width = window.innerWidth;
     const size =(width-paddingSize)/widthElement
-    if(width <= 600){
+    if(width <=360){
+      return 1
+    }
+    else if(width <= 600){
       return Math.floor(size)<1?1:1+0.2
     }else if(width > 600 &&width <= 1924){
       return Math.round(size)

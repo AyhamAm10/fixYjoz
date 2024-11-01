@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
           <h1 className="text-dark text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold">
           {t("EffortlesslyWith")} <span className="text-red">{t("YJOZ")}</span>
           </h1>
-          <p className="text-[#525C60] text-sm md:text-lg ">
+          <p className="text-[#525C60] text-sm md:text-2xl ">
             {
             str.split(" ").map((word:string , ind:number)=>(
                 <span key={ind} className={`${word == "YJOZ" ?  "text-yalwe" :""  } ${ind == 0 ? "text-red" :""}`}>

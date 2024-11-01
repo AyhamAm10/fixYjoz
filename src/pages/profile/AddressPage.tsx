@@ -94,7 +94,7 @@ const AddressPage = () => {
 
 
   return (
-    <section className="  sm:px-16 xl:px-0">
+    <section className="relative   sm:px-16 xl:px-0">
       <div className="flex items-start justify-between sm:col-span-2">
         <div className="text-dark text-lg sm:text-xl md:text-2xl lg:text-[2rem] font-semibold">
           <h1>Addresses</h1>
@@ -125,19 +125,19 @@ const AddressPage = () => {
       }
 
       {display && (
-        <div className="w-full top-0 left-0 z-[9000] min-h-screen fixed bg-[#D9D9D9CC]  ">
+        <div className="  w-full inset-0 h-full z-[9000]  fixed md:bg-[#D9D9D9CC]  ">
           {loading ? (
             <div className="flex-center">
               <Loader />
             </div>
           ) : (
-            <div className="lg:max-w-[40rem] xl:max-w-[54rem] my-auto rounded-md mx-auto m p-6 sm:p-12 flex flex-col gap-4 sm:gap-6 bg-white">
+            <div className="max-h-svh overflow-y-auto custom-scroll-2 mr-1 md:max-w-[40rem] xl:max-w-[54rem] my-auto rounded-md md:mx-auto m p-6 sm:p-12 flex flex-col gap-4 sm:gap-6 bg-white">
               <div>
                 <MapContainer
                   center={[24.4539, 54.3773]}
                   zoom={13}
                   className="leaflet-container"
-                  style={{ height: "400px" }}
+                  style={{minHeight: '219px',borderRadius:"24px"  }}
                 >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -152,7 +152,7 @@ const AddressPage = () => {
               >
                 <select
                   onChange={(e) => handleSelectPosation(e.target.value)}
-                  className="bg-[#F2F1F1] w-full p-3 rounded-md text-dark opacity-40 font-semibold text-lg sm:text-xl"
+                  className="bg-[#F2F1F1] text-[#333]/40 w-full p-3 rounded-md   font-semibold text-lg sm:text-xl outline-none"
                 >
                   <option value="home">Home</option>
                   <option value="home">work</option>
@@ -161,7 +161,7 @@ const AddressPage = () => {
                 <input
                   placeholder="Street"
                   type="text"
-                  className="bg-[#F2F1F1] w-full p-3 rounded-md "
+                  className="bg-[#F2F1F1] w-full p-3 rounded-md outline-none"
                   onChange={(e) =>
                     dispatch(
                       updateFieldAddress({
@@ -173,12 +173,12 @@ const AddressPage = () => {
                 />
                 <select
                   onChange={(e) => handleSelectCity(e.target.value)}
-                  className="bg-[#F2F1F1] w-full p-3 rounded-md text-dark opacity-40 font-semibold text-lg sm:text-xl"
+                  className="bg-[#F2F1F1] text-[#333]/40 w-full p-3 rounded-md font-semibold text-lg sm:text-xl outline-none"
                 >
                   <option value="">select city</option>
                   <option value="Dubai">Dubai</option>
                 </select>
-                <p className="text-dark text-lg xl:text-xl font-medium opacity-80 flex items-center gap-2">
+                <p className="text-dark text-2xl  font-medium  flex items-center gap-2 pb-5">
                   Mark as default address
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -209,19 +209,22 @@ const AddressPage = () => {
                     </defs>
                   </svg>
                 </p>
-                <div className="w-full md:w-3/4 mx-auto flex-wrap gap-3 flex items-center justify-between">
+                <div className="w-full md:w-3/4 grid md:grid-cols-7 mx-auto  gap-2 ">
+                  
                   <button
-                    className="bg-[#959695] w-full  px-10 py-2 rounded-md text-white "
+                    className="bg-[#959695] col-span-3 w-full  px-10 py-2  rounded-md text-white "
                     onClick={chacgeTogle}
                   >
                     Cancel
                   </button>
+                  <i></i>
                   <button
                     type="submit"
-                    className="bg-[#959695] w-full  bg-gradient-to-r from-red to-yalwe px-10 py-2 rounded-md text-white "
+                    className="bg-[#959695] col-span-3 w-full   bg-gradient-to-r from-red to-yalwe px-10 py-2 rounded-md text-white "
                   >
                     save
                   </button>
+                  
                 </div>
               </form>
             </div>
