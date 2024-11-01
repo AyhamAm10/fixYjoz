@@ -12,8 +12,8 @@ import list4active from "../assets/profilePage/list/list4Active.svg"
 import list4 from "../assets/profilePage/list/list4.svg"
 import list5active from "../assets/profilePage/list/list5active.svg"
 import list5 from "../assets/profilePage/list/list5.svg"
-import list6active from "../assets/profilePage/list/list6active.svg"
-import list6 from "../assets/profilePage/list/list6.svg"
+// import list6active from "../assets/profilePage/list/list6active.svg"
+// import list6 from "../assets/profilePage/list/list6.svg"
 
 export const headerList:headerType[] = [
     {

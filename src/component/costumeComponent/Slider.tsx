@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import CostumBtn from './CostumBtn';
-import useScreenSize from '../../hooks/useScreenSizeSlider';
+// import useScreenSize from '../../hooks/useScreenSizeSlider';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
