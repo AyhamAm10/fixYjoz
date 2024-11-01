@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -11,10 +11,12 @@ type sliderProps = {
   data: any[];
   Component: React.ComponentType<{ data: any; revers?: boolean }>;
   bg?: string;
+  
 };
 
 const Slider: React.FC<sliderProps> = ({ data, Component, bg }) => {
 const {screenSize} = useScreenSize()
+
   const {t} = useTranslation()
   return (
     <>

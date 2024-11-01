@@ -4,8 +4,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import CostumBtn from './CostumBtn';
-// import useScreenSize from '../../hooks/useScreenSizeSlider';
+import CostumBtn from './CostumBtn'
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -67,12 +66,12 @@ const Slider:React.FC<sliderProps> = ({data , Component , bg , subCategory,scree
         <div className="flex justify-center mt-5">
           <div className="swiper-pagination"></div>
         </div>
-        <div className='flex items-center justify-around'>
+        <div className='flex items-center gap-3 gap-x-2 justify-around flex-wrap '>
           {
             subCategory && 
             subCategory.map((item)=>(
               <div key={item.id}>
-                <img className='h-16' src={item.image} alt={item.category} />
+                <img className='h-10 sm:h-16' src={item.image} alt={item.category} />
               </div>
             ))
           }
