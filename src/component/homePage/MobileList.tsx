@@ -3,27 +3,39 @@ import img from "../../assets/81.png"
 import logoutImg from "../../assets/logout.png"
 import { mobileLink } from "../../content/mobileNavLink"
 type props = {
-  setMenuOpen : React.Dispatch<React.SetStateAction<boolean>>
+  setMenuOpen : React.Dispatch<React.SetStateAction<boolean>>,
+  isProfilePage:boolean
 }
-const MobileList:React.FC<props> = ({setMenuOpen}) => {
+const MobileList:React.FC<props> = ({setMenuOpen,isProfilePage}) => {
   return (
     <div className="p-5  absolute bg-white rounded-md right-2 top-20 z-30">
-        <div className="flex flex-col gap-8 items-center">
-            <img src={img} alt="" />
-            <ul className="flex items-center gap-3 flex-col ">
+        <div className="flex flex-col gap-8 items-start">
+            {!isProfilePage && <img src={img} alt="" />}
+            <ul className="flex items-start gap-5 flex-col z-50">
                 {
-                  mobileLink.map((link:any)=>(
+                  !isProfilePage?mobileLink(false).map((link:any)=>(
                     <li className="p-2" key={link.id} onClick={()=>setMenuOpen((priv)=>!priv)} >
-                        <Link to={link.link}>
-                            <img src={link.icon} alt="link" />
+                        <Link to={link.link} className="flex items-center gap-2">
+                            <img src={link.icon} alt="link"  />
+                            
+
                         </Link>
                     </li>
-                  ))  
+                  )):mobileLink(true).filter((link:any)=>link.isProfileItem).map((link:any)=>(
+                    <li className="p-2" key={link.id} onClick={()=>setMenuOpen((priv)=>!priv)} >
+                        <Link to={link.link} className="flex items-center gap-5">
+                            <img src={link.icon} alt="link" className="bg-gradient-to-r from-red to-yalwe rounded-full p-2 "  />
+                            <span>{link.title}</span>
+
+                        </Link>
+                    </li>
+                  ))
                 }
             </ul>
-            <div className="p-1 rounded-full bg-red">
+            <div className="p-2 flex gap-5 items-center  ">
 
-            <img src={logoutImg} alt="" />
+            <img src={logoutImg} alt=""  className="bg-red p-2  rounded-full"/>
+            {isProfilePage && <span className="text-red">Log out</span>}
             </div>
         </div>
     </div>

@@ -17,6 +17,7 @@ const Header = () => {
   let location = useLocation();
   const [ListItem, setListItem] = useState<headerType[]>(headerList);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuProfileOpen, setMenuProfileOpen] = useState(false);
   const { i18n } = useTranslation();
   const [cookie] = useCookies(["tooken"]);
 
@@ -96,13 +97,13 @@ const Header = () => {
 
           {
             cookie &&
-            <Link  to={"/account/profile"} >
+            <span onClick={()=>setMenuProfileOpen((priv)=>!priv)} >
               <img
                 src={avatar}
                 className="rounded-full w-[36px] h-[36px] 2xl:w-[56px] 2xl:h-[56px]"
                 alt="search icon "
               />
-            </Link>
+            </span>
           }
         </div>
 
@@ -118,7 +119,15 @@ const Header = () => {
         variants={menuVariants}
         className="overflow-hidden"
       >
-        <MobileList setMenuOpen={setMenuOpen} />
+        <MobileList setMenuOpen={setMenuOpen} isProfilePage={false} />
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        animate={isMenuProfileOpen ? "visible" : "hidden"}
+        variants={menuVariants}
+        className="overflow-hidden"
+      >
+        <MobileList setMenuOpen={setMenuProfileOpen} isProfilePage={true} />
       </motion.div>
     </header>
   );
