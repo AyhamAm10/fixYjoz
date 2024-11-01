@@ -6,7 +6,7 @@ export const initialState: UserProfile = {
   accept_instant_orders: false,
   address: null,
   available_balance: 0,
-  business_name: null,
+  business_name: "",
   country_code: null,
   cover_image: null,
   email: "",

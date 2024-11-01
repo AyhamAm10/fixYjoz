@@ -8,18 +8,15 @@ import Loader from "../component/layout/Loader";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 const Verification: React.FC = () => {
-  const [cookies , setCookie] = useCookies(["token"]);
+  const [_cookies , setCookie] = useCookies(["token"]);
   const [timer, setTimer] = useState(60); 
   const [code, setCode] = useState(["", "", "", ""]); 
   const [loading , setLoading] = useState<boolean>(false)
   const navigate = useNavigate()
   const verifyBodyReq = useSelector((state:any)=>state).verifySlice
+  const verifyInfo = useSelector((state:any )=>state.setDataVerifyCode)
 
-  useEffect(()=>{
-
-    console.log(cookies)
-  },[verifyBodyReq])
-
+  console.log(verifyInfo)
   useEffect(() => {
     if (timer > 0) {
       const interval = setInterval(() => {
@@ -100,7 +97,7 @@ const Verification: React.FC = () => {
             <h2 className="text-3xl font-semibold mb-6">Verification Code</h2>
             <p className="text-[#A9A8A8] text-center max-w-[33rem] text-sm mb-6">
               You will receive a text message containing the verification code on the number
-              <p className="text-red font-medium">+963933354342</p>.
+              <p className="text-red font-medium">{verifyInfo.contact ?? ""}</p>.
             </p>
 
             <div className="relative my-2 sm:my-6 w-24 h-24">

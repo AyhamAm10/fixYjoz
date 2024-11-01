@@ -30,7 +30,7 @@ export interface UserProfile {
   accept_instant_orders: boolean;
   address: string | null;
   available_balance: number;
-  business_name: string | null;
+  business_name: string | "";
   country_code: string | null;
   cover_image: string | null;
   email: string;

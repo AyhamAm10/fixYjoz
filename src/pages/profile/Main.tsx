@@ -27,7 +27,7 @@ const Main = () => {
     if (cookie) {
       const res = await axiosClaint.get(endPoints.get.getUserProfile, {
         headers: {
-          Authorization: `Bearer ${validToken}`,
+          Authorization: `Bearer ${cookie.token}`,
         },
       });
 

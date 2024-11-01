@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import arrow from "../../assets/category/raphael_arrowdown.svg";
 
 interface SelectProps {
@@ -10,6 +10,7 @@ interface SelectProps {
 const Select: React.FC<SelectProps> = ({ value, data, onChange }) => {
   const [isOpen, setIsOpen] = useState(false); 
   const [selectedValue, setSelectedValue] = useState(value); 
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -21,11 +22,24 @@ const Select: React.FC<SelectProps> = ({ value, data, onChange }) => {
     setIsOpen(false); 
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className='relative'>
+    <div className='relative' ref={dropdownRef}>
       <div
         onClick={toggleDropdown} 
-        className='rounded-md  w-fit flex items-center gap-3 text-[#B4B4B4] text-xs sm:text-lg md:text-xl lg:text-2xl bg-white px-3 py-3 cursor-pointer'
+        className='rounded-md w-fit flex items-center gap-3 text-[#B4B4B4] text-xs sm:text-lg md:text-xl lg:text-2xl bg-white px-3 py-3 cursor-pointer'
       >
         <h4>{selectedValue}</h4>
         <img src={arrow} alt="arrow" />
